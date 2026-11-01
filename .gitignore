@@ -1,0 +1,24 @@
+# macOS system files
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+
+# macOS volume files (common on external drives)
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# Blender automatic backups (recreated on every save)
+*.blend[0-9]
+*.blend[0-9][0-9]
