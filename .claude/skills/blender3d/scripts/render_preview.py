@@ -2,7 +2,7 @@
 
 Usage:
     /Applications/Blender.app/Contents/MacOS/Blender -b <file.blend> --factory-startup \
-        -P skills/blender3d/scripts/render_preview.py -- <out_dir> [<prefix>]
+        -P .claude/skills/blender3d/scripts/render_preview.py -- <out_dir> [<prefix>]
 
 Writes <out_dir>/<prefix>_front.png (near eye level) and <out_dir>/<prefix>_top.png
 (elevated, shows the top surface), both framing all mesh objects. <prefix> defaults

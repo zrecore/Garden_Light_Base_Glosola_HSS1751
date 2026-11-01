@@ -2,7 +2,7 @@
 
 Usage:
     /Applications/Blender.app/Contents/MacOS/Blender -b <file.blend> --factory-startup \
-        -P skills/blender3d/scripts/render_fit_check.py -- <out_dir> [<prefix>]
+        -P .claude/skills/blender3d/scripts/render_fit_check.py -- <out_dir> [<prefix>]
 
 Writes:
     <prefix>_exploded.png  child objects pulled down below their parent, 3/4 view

@@ -68,7 +68,20 @@ PANEL_RIM, PANEL_RECESS = 0.35, 0.08
 # printed plug slides in; the cup wall sits RIB_H inside the rib tips.
 # Test prints: 0.6 mm was still too big to go in; the user asked for the outer wall
 # radius 2 mm smaller (ribs move in with it), i.e. 4 mm more across.
-RIB_CLEARANCE = 0.46        # 4.6 mm across = 2.3 mm per side under PIPE_ID
+# Then 1 mm too loose: outer wall and ribs back out 1 mm in radius.
+# Then still loose: rib tips 0.5 mm further out in radius with the cup wall unchanged
+# (the wall is derived as tip - RIB_H, so RIB_CLEARANCE -1.0 mm and RIB_H +0.5 mm together).
+# Then tips at 76.41 mm across were too big for the pipe (75.41 was too loose): set midway,
+# 75.91 mm across (RIB_CLEARANCE 0.16 -> 0.21; RIB_H unchanged, so the cup wall moves in 0.25 mm).
+# The pipe is slightly out of round and can't be measured; PIPE_ID is only a reference.
+# Then 75.91 (and 76.41) were still too big. Reference print: tips 73.41 mm across with 2.5 mm
+# ribs was almost right, only 0.5 mm (diameter) loose -> tips 73.91 mm across, ribs back to 2.5 mm
+# (RIB_CLEARANCE 0.41, RIB_H 0.25, so the cup wall is 68.91 mm across).
+# Then almost perfect but a little loose: tips another 0.3 mm across -> 74.21 mm
+# (RIB_CLEARANCE 0.38; the cup wall follows, 69.21 mm across).
+# Then still a hair loose: tips another 0.2 mm across -> 74.41 mm (RIB_CLEARANCE 0.36;
+# the cup wall follows, 69.41 mm across).
+RIB_CLEARANCE = 0.36        # 3.6 mm across under PIPE_ID -> rib tips 74.41 mm across
 BASE_FLANGE_H = 0.3
 BASE_CUP_H = 3.6            # cup height above the flange
 BASE_CUP_WALL = 0.15
@@ -79,17 +92,23 @@ RIB_LEAD = 0.4              # sloped lead-in length at the open end of the cup
 INNER_RIB_COUNT = 6         # support ribs from the socket to the cup wall, on the floor
 INNER_RIB_T = 0.2
 INNER_RIB_OFFSET = 30.0     # degrees; 30 puts each one midway between two wedge ribs
-SOCKET_WALL = 0.3          # socket wall thickness, kept when the bore changes
+# Socket: the hole the spike's collar goes into. The hole is set directly by BORE_D, and the
+# socket's outside by SOCKET_OD, so changing either never moves the other: the wall
+# ((SOCKET_OD - BORE_D) / 2) is only a result. Not derived from the modeled collar.
+# Test prints, bore diameter: 24.9 -> 28.9 -> 26.9 -> 24.1 -> 25.5 mm (too small for the stake).
+# Reference print: 28.9 mm was almost right, only needed 0.5 mm less -> 28.4 mm.
+# Then almost perfect but the stake was a little loose: 0.3 mm smaller -> 28.1 mm.
+# Then the stake still had a bit of play: 0.3 mm smaller again -> 27.8 mm.
+BORE_D = 2.78
+SOCKET_OD = 3.49            # as in the 28.9 reference print, so the wall is 3.55 mm
 SOCKET_H = 2.6
 
 # Spike: cross fins with a round collar that slides into the plug's socket
-SLIP = 0.05                 # diametral clearance for the collar in the socket
-# Test print: the real stake's collar didn't fit the socket; the user asked for the
-# socket bore radius 2 mm larger, so the collar estimate grows by 4 mm (2.44 -> 2.84)
-COLLAR_D = 2.84
+# The modeled collar is an old estimate (not measured). The spike is deliberately left
+# unmodified, so it is now larger than BORE_D; only the plug's hole follows test prints.
+COLLAR_D = 2.64
 COLLAR_H = SOCKET_H
-SOCKET_ID = COLLAR_D + SLIP
-SOCKET_OD = SOCKET_ID + 2 * SOCKET_WALL
+SOCKET_ID = BORE_D
 FIN_SPAN, FIN_T, FIN_TIP_SPAN = 2.2, 0.3, 0.3
 
 # Layout: parts are stacked along Z in assembly order (spike, plug, light) with this
