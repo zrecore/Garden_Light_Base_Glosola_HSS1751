@@ -99,8 +99,9 @@ INNER_RIB_OFFSET = 30.0     # degrees; 30 puts each one midway between two wedge
 # Reference print: 28.9 mm was almost right, only needed 0.5 mm less -> 28.4 mm.
 # Then almost perfect but the stake was a little loose: 0.3 mm smaller -> 28.1 mm.
 # Then the stake still had a bit of play: 0.3 mm smaller again -> 27.8 mm.
-BORE_D = 2.78
-SOCKET_OD = 3.49            # as in the 28.9 reference print, so the wall is 3.55 mm
+# Then still a little loose: 0.2 mm smaller again -> 27.6 mm.
+BORE_D = 2.76
+SOCKET_OD = 3.49            # as in the 28.9 reference print, so the wall is 3.65 mm
 SOCKET_H = 2.6
 
 # Spike: cross fins with a round collar that slides into the plug's socket
