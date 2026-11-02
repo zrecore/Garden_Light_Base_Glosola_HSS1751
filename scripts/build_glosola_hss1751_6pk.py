@@ -81,7 +81,9 @@ PANEL_RIM, PANEL_RECESS = 0.35, 0.08
 # (RIB_CLEARANCE 0.38; the cup wall follows, 69.21 mm across).
 # Then still a hair loose: tips another 0.2 mm across -> 74.41 mm (RIB_CLEARANCE 0.36;
 # the cup wall follows, 69.41 mm across).
-RIB_CLEARANCE = 0.36        # 3.6 mm across under PIPE_ID -> rib tips 74.41 mm across
+# Then almost perfect but a touch loose: tips another 0.2 mm across -> 74.61 mm
+# (RIB_CLEARANCE 0.34; the cup wall follows, 69.61 mm across).
+RIB_CLEARANCE = 0.34        # 3.4 mm across under PIPE_ID -> rib tips 74.61 mm across
 BASE_FLANGE_H = 0.3
 BASE_CUP_H = 3.6            # cup height above the flange
 BASE_CUP_WALL = 0.15
@@ -100,8 +102,9 @@ INNER_RIB_OFFSET = 30.0     # degrees; 30 puts each one midway between two wedge
 # Then almost perfect but the stake was a little loose: 0.3 mm smaller -> 28.1 mm.
 # Then the stake still had a bit of play: 0.3 mm smaller again -> 27.8 mm.
 # Then still a little loose: 0.2 mm smaller again -> 27.6 mm.
-BORE_D = 2.76
-SOCKET_OD = 3.49            # as in the 28.9 reference print, so the wall is 3.65 mm
+# Then almost perfect but a touch loose: 0.2 mm smaller again -> 27.4 mm.
+BORE_D = 2.74
+SOCKET_OD = 3.49            # as in the 28.9 reference print, so the wall is 3.75 mm
 SOCKET_H = 2.6
 
 # Spike: cross fins with a round collar that slides into the plug's socket
